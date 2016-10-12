@@ -19,7 +19,7 @@ weatherApp.config(function ($routeProvider) {
 });
 //SERVICE
 weatherApp.service('cityService', function(){
-    this.city = "New York, NY";
+    this.city = "Adana";
 });
 
 // CONTROLLERS
@@ -38,7 +38,7 @@ weatherApp.controller('forecastController', ['$scope','$resource','$routeParams'
     $scope.weatherResult = $scope.weatherAPI.get({q: $scope.city, cnt:$scope.days });
     console.log($scope.weatherResult);
     $scope.convertToFahrenheit = function(degK) {
-        return Math.round((1.8*(degK-273))+32);
+        return Math.round(degK-273);
     };
     $scope.convertToDate = function(dt){
         return new Date(dt*1000);
